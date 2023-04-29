@@ -26,7 +26,7 @@ def get_author_info(author_url):
 def inToOut():
     #outFieldnames = ['First name', 'Last name', 'affiliation', 'citations', 'scholar_page','url_pic']
     outFieldnames = ['First name', 'Last name', 'affiliation', 'citations', 'scholar_page','url_pic','citationsAll','citations5Y','hIndexAll','hIndex5Y','keywords']
-    with open('out2.csv', 'w', newline='') as outCsvfile:
+    with open('out.csv', 'w', newline='') as outCsvfile:
         outWriter = csv.DictWriter(outCsvfile, fieldnames=outFieldnames)   
         outWriter.writeheader()
         with open('in.csv', newline='') as csvfile:
@@ -63,44 +63,9 @@ def inToOut():
                     outWriter.writerow({'First name': firstName, 'Last name': lastName, 'affiliation': affiliation, 'citations': citations, 'scholar_page': scholarPage, 'url_pic': url_pic,
                         'citationsAll':citationsAll,'citations5Y':citations5Y,'hIndexAll':hIndexAll,'hIndex5Y':hIndex5Y,'keywords':kw})
                     sleep(randint(1,3))
-                    #print("%s %s, %s" % (firstName, lastName, affiliation))
-                    #outWriter.writerow({'First name': firstName, 'Last name': lastName, 'affiliation': affiliation, 'citations': citations, 'scholar_page': scholarPage, 'url_pic': url_pic})
-         
-headers = {'user-agent':'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36'}
 
 #### MAIN HERE
 
+headers = {'user-agent':'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36'}
 inToOut()
-# with open('out.csv', newline='') as csvfile:
-#         csvreader = csv.DictReader(csvfile, delimiter=',', quotechar='|')
-#         outFieldnames = ['First name', 'Last name', 'affiliation', 'citations', 'scholar_page','url_pic','citationsAll','citations5Y','hIndexAll','hIndex5Y','keywords']
-#         with open('out-h-index.csv', 'w', newline='') as outCsvfile:
-#             outWriter = csv.DictWriter(outCsvfile, fieldnames=outFieldnames)   
-#             outWriter.writeheader()
-
-#             for row in csvreader:
-#                 print(row)
-#                 firstName= row['First name']
-#                 lastName= row['Last name']
-#                 citations= row['citations']
-#                 scholarPage= row['scholar_page']
-#                 affiliation= row['affiliation']
-#                 url_pic= row['url_pic']
-                
-#                 doc= get_author_info(scholarPage)
-#                 print("Analyzing "+firstName+" "+lastName);
-
-#                 citationsAll= doc.find_all("td", class_="gsc_rsb_std")[0].text
-#                 citations5Y= doc.find_all("td", class_="gsc_rsb_std")[1].text
-#                 hIndexAll= doc.find_all("td", class_="gsc_rsb_std")[2].text
-#                 hIndex5Y= doc.find_all("td", class_="gsc_rsb_std")[3].text
-#                 keywords= doc.find_all("a", class_="gsc_prf_inta gs_ibl")
-#                 kw=""
-#                 for a in doc.find_all("a", class_="gsc_prf_inta gs_ibl"):
-#                     kw=kw+a.text+";"
-#                 print("keywords: "+kw)
-      
-#                 outWriter.writerow({'First name': firstName, 'Last name': lastName, 'affiliation': affiliation, 'citations': citations, 'scholar_page': scholarPage, 'url_pic': url_pic,
-#                     'citationsAll':citationsAll,'citations5Y':citations5Y,'hIndexAll':hIndexAll,'hIndex5Y':hIndex5Y,'keywords':kw})
-#                 sleep(randint(1,3))
 
