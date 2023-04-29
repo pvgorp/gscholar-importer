@@ -1,7 +1,7 @@
 # gscholar-importer
 Quick hack to pull from Google Scholar the author pages/pictures and basic citation/h-index data.
 
-Use case: you are organizing a scientific workshop and you have received only basic information from the last year's programme committee. You want to pull more inforamtion from Google Scholar to analyze efficiently the academic track record of the PC members.
+Use case: you are organizing a scientific workshop and you have received only basic information from the last year's programme committee. You want to pull more information from Google Scholar to analyze efficiently the academic track record of the PC members.
 
 ## Assumed input
 
