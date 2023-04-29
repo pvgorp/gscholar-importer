@@ -10,7 +10,7 @@ from time import sleep
 # this function for the getting inforamtion of the web page
 def get_author_info(author_url):
 
-  #download the page
+  # download the page
   response=requests.get(author_url,headers=headers)
 
   # check successful response
@@ -18,11 +18,11 @@ def get_author_info(author_url):
     print('Status code:', response.status_code)
     raise Exception('Failed to fetch web page ')
 
-  #parse using beautiful soup
+  # parse using beautiful soup
   paper_doc = BeautifulSoup(response.text,'html.parser')
   return paper_doc
 
-# This function caches scholarly data to out.csv (e.g., citations, URL), for further procesing by custom code
+# Combine ouput of the scholarly library with some custom scraping based on BeautifulSoup
 def inToOut():
     #outFieldnames = ['First name', 'Last name', 'affiliation', 'citations', 'scholar_page','url_pic']
     outFieldnames = ['First name', 'Last name', 'affiliation', 'citations', 'scholar_page','url_pic','citationsAll','citations5Y','hIndexAll','hIndex5Y','keywords']
