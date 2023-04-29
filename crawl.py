@@ -24,7 +24,6 @@ def get_author_info(author_url):
 
 # Combine ouput of the scholarly library with some custom scraping based on BeautifulSoup
 def inToOut():
-    #outFieldnames = ['First name', 'Last name', 'affiliation', 'citations', 'scholar_page','url_pic']
     outFieldnames = ['First name', 'Last name', 'affiliation', 'citations', 'scholar_page','url_pic','citationsAll','citations5Y','hIndexAll','hIndex5Y','keywords']
     with open('out.csv', 'w', newline='') as outCsvfile:
         outWriter = csv.DictWriter(outCsvfile, fieldnames=outFieldnames)   
